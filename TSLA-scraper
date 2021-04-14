@@ -1,0 +1,33 @@
+<?php
+error_reporting(E_ERROR | E_PARSE);
+require 'vendor/autoload.php';
+use Goutte\Client;
+use Symfony\Component\DomCrawler\Crawler;
+$client = new Client();
+
+//$t = $crawler->filter('ytd-video-renderer> div > div > div > div > h3 > a > yt-formatted-string')->text();
+//$stonks = $crawler->filterXpath('//*[@id="contents"]/ytd-video-renderer')
+/*$crawler->filter('#scr-res-table > div.Ovx\(a\).Ovx\(h\)--print.Ovy\(h\).W\(100\%\) > table > tbody > tr:nth-child(1) > td.Va\(m\).Ta\(start\).Pstart\(6px\).Pend\(10px\).Miw\(90px\).Start\(0\).Pend\(10px\).simpTblRow\:h_Bgc\(\$hoverBgColor\).Pos\(st\).Bgc\(\$lv3BgColor\).Bgc\(\$lv2BgColor\).Ta\(start\)\!.Fz\(s\) > a')->each(function ($node) {
+    var_dump($node->text()."\n");
+});*/
+$x = 0;
+for ($x = 0; $x <= 24; $x++) {
+    try {
+      define($prev = $stonk, true);
+    }
+    catch(exception $e){
+        print("still at first itteration");
+    }
+    $crawler = $client->request('GET', 'https://finance.yahoo.com/quote/TSLA?p=TSLA&.tsrc=fin-srch');
+    $output = $crawler->filterXpath('//*[@id="quote-header-info"]/div[3]/div[1]/div/span[1]');
+    $stonk = $output->text();
+    echo("{$stonk}\n");
+    if($stonk > $prev){
+        print("GOOOOOOOOOOD");
+    }
+    else{
+        print("NOOOOPE");
+    }
+    sleep(1);
+}
+?>
