@@ -5,11 +5,6 @@ use Goutte\Client;
 use Symfony\Component\DomCrawler\Crawler;
 $client = new Client();
 
-//$t = $crawler->filter('ytd-video-renderer> div > div > div > div > h3 > a > yt-formatted-string')->text();
-//$stonks = $crawler->filterXpath('//*[@id="contents"]/ytd-video-renderer')
-/*$crawler->filter('#scr-res-table > div.Ovx\(a\).Ovx\(h\)--print.Ovy\(h\).W\(100\%\) > table > tbody > tr:nth-child(1) > td.Va\(m\).Ta\(start\).Pstart\(6px\).Pend\(10px\).Miw\(90px\).Start\(0\).Pend\(10px\).simpTblRow\:h_Bgc\(\$hoverBgColor\).Pos\(st\).Bgc\(\$lv3BgColor\).Bgc\(\$lv2BgColor\).Ta\(start\)\!.Fz\(s\) > a')->each(function ($node) {
-    var_dump($node->text()."\n");
-});*/
 $x = 0;
 for ($x = 0; $x <= 24; $x++) {
     try {
